@@ -21,7 +21,7 @@ git clone https://github.com/OracleMythix/DuoRain.git
 ### ✏️ Edit config.json
 
 ```json
-{"JWT": "YOUR TOKEN HERE", "UID": "YOUR UID HERE", "FROM": "en", "TO": "fr", "TIMEZONE":"Your_Continent/Your_city"}
+{"JWT": "YOUR TOKEN HERE", "UID": "YOUR UID HERE", "FROM": "en", "TO": "fr"}
 ```
 
 ---
