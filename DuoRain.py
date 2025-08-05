@@ -4,7 +4,7 @@ from datetime import datetime,timezone,timedelta
 from colorama import Fore,init
 
 init(autoreset=True)
-
+#---Speed---
 SLEEP_TIME=0
 
 try:
