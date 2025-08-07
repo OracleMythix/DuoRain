@@ -16,6 +16,21 @@
 
 ```bash
 git clone https://github.com/OracleMythix/DuoRain.git
+cd DuoRain
+```
+
+* Install Requirements
+
+```bash
+pip install -r requirements.txt
+```
+
+`requirements.txt` should contain:
+
+```
+requests
+tqdm
+colorama
 ```
 
 ---
