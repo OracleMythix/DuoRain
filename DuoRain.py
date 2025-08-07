@@ -2,17 +2,40 @@ import requests,json,random,time
 from tqdm import tqdm
 from datetime import datetime,timezone,timedelta
 from colorama import Fore,init
+import os,base64
 
 init(autoreset=True)
 #---Speed---
 SLEEP_TIME=0
 
-try:
- with open("config.json")as f:cfg=json.load(f)
-except FileNotFoundError:
- print(Fore.RED+"config.json not found. Make sure it's in the same folder.");exit(1)
-except json.JSONDecodeError as e:
- print(Fore.RED+f"Error parsing config.json: {e}");exit(1)
+if os.path.exists("config.json"):
+ try:
+  with open("config.json")as f:cfg=json.load(f)
+ except json.JSONDecodeError as e:
+  print(Fore.RED+f"Error parsing config.json: {e}");exit(1)
+else:
+ jwt=input("Enter your JWT: ").strip()
+ try:
+  payload=jwt.split('.')[1]
+  padded=payload+'='*(-len(payload)%4)
+  sub=json.loads(base64.urlsafe_b64decode(padded))["sub"]
+ except Exception as e:
+  print(Fore.RED+f"Failed to decode JWT: {e}");exit(1)
+ HEADERS={
+  "authorization":f"Bearer {jwt}","cookie":f"jwt_token={jwt}",
+  "connection":"Keep-Alive","content-type":"application/json",
+  "user-agent":"Duolingo-Storm/1.0","device-platform":"web",
+  "x-duolingo-device-platform":"web","x-duolingo-app-version":"1.0.0",
+  "x-duolingo-application":"chrome","x-duolingo-client-version":"web",
+  "accept":"application/json"
+ }
+ r=requests.get(f"https://www.duolingo.com/2017-06-30/users/{sub}",headers=HEADERS)
+ if r.status_code!=200:
+  print(Fore.RED+f"Failed to fetch profile: {r.status_code}")
+  print(r.text);exit(1)
+ d=r.json()
+ cfg={"JWT":jwt,"UID":sub,"FROM":d.get("fromLanguage","en"),"TO":d.get("learningLanguage","fr")}
+ with open("config.json","w")as f:json.dump(cfg,f)
 
 JWT=cfg.get("JWT")
 UID=cfg.get("UID")
