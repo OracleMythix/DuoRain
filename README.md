@@ -22,7 +22,7 @@ git clone https://github.com/OracleMythix/DuoRain.git
 
 ## 🚀 Usage
 
-Before first use, retrieve your **JWT token** from your browser console while logged into Duolingo:
+Before first use, retrieve your **JWT token** from your browser console while logged into Duolingo by pasting the code below:
 
 ```js
 document.cookie.match(new RegExp('(^| )jwt_token=([^;]+)'))[0].slice(11)
