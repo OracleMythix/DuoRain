@@ -25,14 +25,6 @@ cd DuoRain
 pip install -r requirements.txt
 ```
 
-`requirements.txt` should contain:
-
-```
-requests
-tqdm
-colorama
-```
-
 ---
 
 ## 🔐 Fetch Your JWT Token Before Usage
