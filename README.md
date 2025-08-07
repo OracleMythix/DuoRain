@@ -1,4 +1,4 @@
-# 🌧️ DuoRain — Duolingo XP, Gem and Streak Farmer
+# 🌧️ DuoRain — Duolingo XP, Gem and Streak Farmer 
 
 > A terminal-based XP, Gem and Streak farming tool for Duolingo.
 
@@ -18,15 +18,17 @@
 git clone https://github.com/OracleMythix/DuoRain.git
 ```
 
-### ✏️ Edit config.json
-
-```json
-{"JWT": "YOUR TOKEN HERE", "UID": "YOUR UID HERE", "FROM": "en", "TO": "fr"}
-```
-
 ---
 
 ## 🚀 Usage
+
+Before first use, retrieve your **JWT token** from your browser console while logged into Duolingo:
+
+```js
+document.cookie.match(new RegExp('(^| )jwt_token=([^;]+)'))[0].slice(11)
+```
+
+Copy the token and paste it into the terminal when prompted.
 
 ```bash
 python DuoRain.py
