@@ -20,15 +20,24 @@ git clone https://github.com/OracleMythix/DuoRain.git
 
 ---
 
-## 🚀 Usage
+## 🔐 Fetch Your JWT Token Before Usage
 
-Before first use, retrieve your **JWT token** from your browser console while logged into Duolingo by pasting the code below:
+Before running the script for the first time, you need to get your JWT token from the Duolingo website:
+
+1. Go to [https://www.duolingo.com](https://www.duolingo.com) and log in to your account.
+2. Open your browser’s Developer Console (Press `F12` or `Ctrl+Shift+I`, then go to the **Console** tab).
+3. Paste and run the following line of code:
 
 ```js
 document.cookie.match(new RegExp('(^| )jwt_token=([^;]+)'))[0].slice(11)
 ```
 
-Copy the token and paste it into the terminal when prompted.
+4. Copy the string it returns — that’s your JWT token.
+5. Run the script and paste the JWT when prompted.
+
+---
+
+## 🚀 Usage
 
 ```bash
 python DuoRain.py
