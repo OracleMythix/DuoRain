@@ -7,6 +7,7 @@
 * Supports XP, Gem and Streak farming
 * Farms \~499 XP per loop
 * Farms \~120 gems per loop
+* Completes All quests including past monthly badges quest, friend quest and daily quest.
 
 ---
 
@@ -52,7 +53,7 @@ python DuoRain.py
 
 Each XP loop gives you \~499 XP and each Gem loop gives \~120 gems.
 
-> **Note:** The XP farm runs Duolingo stories in **English → French** Course.
+> **Note:** The XP farm runs Duolingo stories in **English → French** Course (I will add a feature that will get you XP in user desired course).
 > To earn XP, make sure the **French course** is already added to your Duolingo profile.
 
 ---
