@@ -5,39 +5,56 @@ from colorama import Fore,init
 import os,base64,calendar,pytz
 from dateutil.relativedelta import relativedelta
 
+
 init(autoreset=True)
 
-# Self-updater
-def self_update():
-    url="https://raw.githubusercontent.com/OracleMythix/DuoRain/main/DuoRain.py"
-    try:
-        r=requests.get(url,timeout=15)
-        if r.status_code==200:
-            remote=r.text
-            with open(__file__,"r",encoding="utf-8") as f: local=f.read()
-            if remote.strip()!=local.strip():
-                print(Fore.YELLOW+"Update found. Updating script...")
-                with open(__file__,"w",encoding="utf-8") as f: f.write(remote)
-                print(Fore.GREEN+"Update applied. Please re-run the script.")
-                exit(0)
-        else:
-            print(Fore.RED+f"Update check failed: {r.status_code}")
-    except Exception as e:
-        print(Fore.RED+f"Update error: {e}")
-
-if "-m" in sys.argv and "--auto-update" in sys.argv:
-    try:
-        with open(__file__,"r",encoding="utf-8") as f: code=f.readlines()
-        new_code=[line for line in code if "self_update()" not in line]
-        with open(__file__,"w",encoding="utf-8") as f: f.writelines(new_code)
-        print(Fore.GREEN+"Auto-update removed from this file.")
-        exit(0)
-    except Exception as e:
-        print(Fore.RED+f"Failed to remove auto-update: {e}");exit(1)
-
-self_update()
 
 SLEEP_TIME=0
+
+
+# Self-updater
+def normalize_code(lines):
+return [l for l in lines if not l.strip().startswith("SLEEP_TIME=")]
+
+
+def self_update():
+url="https://raw.githubusercontent.com/OracleMythix/DuoRain/main/DuoRain.py"
+try:
+r=requests.get(url,timeout=15)
+if r.status_code==200:
+remote=r.text.strip().splitlines()
+with open(__file__,"r",encoding="utf-8") as f: local=f.read().strip().splitlines()
+if normalize_code(remote)!=normalize_code(local):
+print(Fore.YELLOW+"Update found. Updating script...")
+with open(__file__,"w",encoding="utf-8") as f: f.write("\n".join(remote))
+print(Fore.GREEN+"Update applied. Please re-run the script.")
+exit(0)
+else:
+print(Fore.GREEN+"Already up to date.")
+else:
+print(Fore.RED+f"Update check failed: {r.status_code}")
+except Exception as e:
+print(Fore.RED+f"Update error: {e}")
+
+
+if "-m" in sys.argv:
+try:
+with open(__file__,"r",encoding="utf-8") as f: code=f.readlines()
+new_code=[];skip=False
+for line in code:
+if "# Self-updater" in line: skip=True;continue
+if skip and "self_update()" not in line and not line.strip().startswith("# Remove auto-update"):
+continue
+if "self_update()" in line: skip=False;continue
+new_code.append(line)
+with open(__file__,"w",encoding="utf-8") as f: f.writelines(new_code)
+print(Fore.GREEN+"Auto-update code removed from this file.")
+exit(0)
+except Exception as e:
+print(Fore.RED+f"Failed to remove auto-update: {e}");exit(1)
+
+
+self_update()
 
 if os.path.exists("config.json"):
     try:
