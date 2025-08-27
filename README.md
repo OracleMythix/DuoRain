@@ -1,6 +1,6 @@
-# 🌧️ DuoRain — Duolingo XP, Gem and Streak Farmer 
+# 🌧️ DuoRain — Duolingo Automation Tool
 
-> A terminal-based XP, Gem and Streak farming tool for Duolingo.
+> A terminal-based XP, Gem, Streak farming and Quests Completer tool for Duolingo.
 
 ## ⚡️ Features
 
