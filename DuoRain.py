@@ -8,7 +8,7 @@ from dateutil.relativedelta import relativedelta
 
 init(autoreset=True)
 
-
+#---SPEED---
 SLEEP_TIME=0
 
 
