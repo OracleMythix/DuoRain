@@ -60,7 +60,7 @@ Each XP loop gives you \~499 XP and each Gem loop gives \~120 gems.
 
 ## 💧 Credits
 
-* XP, Gem and Streak farming logic adapted from [`DuoXPy`](https://github.com/DuoXPy/DuoXPy-Bot) by [@DuoXPy](https://github.com/DuoXPy)
+* XP farming, Gem farming, Streak farming and All Quests Completer logic adapted from [`DuoXPy`](https://github.com/DuoXPy/DuoXPy-Bot) by [@DuoXPy](https://github.com/DuoXPy)
 * CLI design, UX flow, theming, and enhancements by [@OracleMythix](https://github.com/OracleMythix)
 
 ---
