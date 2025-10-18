@@ -1,5 +1,5 @@
 requests
-tqdm
-colorama
+rich
 pytz
 python-dateutil
+tzlocal
