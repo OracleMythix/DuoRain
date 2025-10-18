@@ -9,6 +9,7 @@
 * Farms \~499 XP per loop
 * Farms \~120 gems per loop
 * Completes All quests including past monthly badges quest, friend quest and daily quest.
+* Free Items & Free Super (3-Days)
 
 ---
 
