@@ -7,7 +7,7 @@
 * Supports XP, Gem and Streak farming
 * **NEW:** Multi-Task Farming - Run XP, Gem, and Streak farms simultaneously
 * Farms \~499 XP per loop
-* Farms \~120 gems per loop
+* Farms \~60 gems per loop
 * Completes All quests including past monthly badges quest, friend quest and daily quest.
 * Free Items & Free Super (3-Days)
 
@@ -55,7 +55,7 @@ python DuoRain.py
 
 ### Single Task Farming
 
-Each XP loop gives you \~499 XP and each Gem loop gives you \~120 gems.
+Each XP loop gives you \~499 XP and Each Gem loop gives you \~60 gems.
 
 ### Multi-Task Farming
 
